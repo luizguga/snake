@@ -70,3 +70,62 @@ canvas {
     gap: 5px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 480px) {
+    body {
+        align-items: center;
+        justify-content: start;
+    }
+    .score--value {
+        font-size: 2rem;
+    }
+    canvas {
+        width: 75vw;
+    }
+    div.direcional {
+        display: grid;
+        width: 105px;
+        grid-template-rows: 35px 35px 35px;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin-top: 15px;
+    }
+    .direcional > button {
+        background-color: transparent;
+        color: white;
+        border: 1px solid black;
+    }
+    .direcional > button:hover {
+        background-color: black;
+    }
+    .up {
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    
+    .left {
+        grid-row-start: 2;
+    }
+    
+    .right {
+        grid-row-start: 2;
+        grid-column-end: 4;
+    }
+    
+    .down {
+        grid-row-start: 3;
+        grid-column-start: 2;
+    }
+    span.game-over {
+        display: none;
+    }
+    span.final-score {
+        display: none;
+    }
+    button.btn-play {
+        margin-top: 50%;
+    }
+}
+
+.direcional {
+    display: none;
+}

@@ -183,7 +183,28 @@ document.addEventListener('keydown', ({key}) => {
     };
 });
 
+const directions = document.querySelectorAll('.direcional > button');
 
+directions[0].addEventListener('touchstart', ()=> {
+    if(direction !== 'down' && rodaJogo){
+        direction = 'up';
+    };
+});
+directions[1].addEventListener('touchstart', ()=> {
+    if(direction !== 'right' && rodaJogo){
+        direction = 'left';
+    };
+});
+directions[2].addEventListener('touchstart', ()=> {
+    if(direction !== 'up' && rodaJogo){
+        direction = 'down';
+    };
+});
+directions[3].addEventListener('touchstart', ()=> {
+    if(direction !== 'left' && rodaJogo){
+        direction = 'right';
+    };
+});
 
 buttonPlay.addEventListener('click', ()=>{
     rodaJogo = true;

@@ -1,8 +1,20 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
+const score = document.querySelector('.score--value');
+const finalScore = document.querySelector('.final-score > span');
+const menu = document.querySelector('.menu-screen');
+const buttonPlay = document.querySelector('.btn-play');
+
 const size = 30;
-const snake = [{x:120,y:120}];
+
+const initialPosition = {x: 270, y: 240};
+
+let snake = [initialPosition];
+
+const incrementScore = () => {
+    score.innerText = +score.innerText + 10;
+};
 
 const audio = new Audio('../assets/audio.mp3');
 
@@ -30,6 +42,7 @@ const food = {
 };
 
 let direction, loopId;
+let rodaJogo = true;
 
 const drawFood = () => {
     const {x, y, color} = food;
@@ -95,6 +108,7 @@ const checkEat = () => {
     const head = snake[snake.length - 1];
 
     if(food.x === head.x && food.y === head.y){
+        incrementScore();
         audio.play();
         snake.push(head);
 
@@ -123,9 +137,17 @@ const checkCollision = () => {
         });
         
     if(wallCollision || selfCollission){
-        alert('você perdeu');
-        location.reload(true);
+        gameOver();
     }
+};
+
+const gameOver = () => {
+    rodaJogo = false;
+    direction = undefined;
+
+    menu.style.display = 'flex';
+    finalScore.innerText = score.innerText;
+    canvas.style.filter = 'blur(2px)';
 };
 
 const gameLoop = () => {
@@ -141,22 +163,38 @@ const gameLoop = () => {
 
     loopId = setTimeout(()=>{
         gameLoop();
-    }, 150);
+    }, 120);
 };
 
 gameLoop();
 
 document.addEventListener('keydown', ({key}) => {
-    if((key === 'w' || key === 'ArrowUp') && direction !== 'down'){
+    if((key === 'w' || key === 'ArrowUp') && direction !== 'down' && rodaJogo){
         direction = 'up';
     };
-    if((key === 'a' || key === 'ArrowLeft') && direction !== 'right'){
+    if((key === 'a' || key === 'ArrowLeft') && direction !== 'right' && rodaJogo){
         direction = 'left';
     };
-    if((key === 's' || key === 'ArrowDown') && direction !== 'up'){
+    if((key === 's' || key === 'ArrowDown') && direction !== 'up' && rodaJogo){
         direction = 'down';
     };
-    if((key === 'd' || key === 'ArrowRight') && direction !== 'left'){
+    if((key === 'd' || key === 'ArrowRight') && direction !== 'left' && rodaJogo){
         direction = 'right';
     };
+});
+
+
+
+buttonPlay.addEventListener('click', ()=>{
+    rodaJogo = true;
+    score.innerText = '00';
+    menu.style.display = 'none';
+    canvas.style.filter = 'none';
+
+    snake = [initialPosition];
+
+    food.x = randomPosition();
+    food.y = randomPosition();
+    food.color = randomColor();
+    drawFood();
 })

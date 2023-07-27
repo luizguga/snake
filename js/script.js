@@ -183,7 +183,7 @@ document.addEventListener('keydown', ({key}) => {
     };
 });
 
-const directions = document.querySelectorAll('.direcional > button');
+const directions = document.querySelectorAll('.direcional > div');
 
 directions[0].addEventListener('touchstart', ()=> {
     if(direction !== 'down' && rodaJogo){

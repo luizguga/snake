@@ -89,15 +89,15 @@ canvas {
         grid-template-columns: 1fr 1fr 1fr;
         margin-top: 15px;
     }
-    .direcional > button {
+    .direcional > div {
         background-color: transparent;
         display: block;
         color: white;
         border: 1px solid black;
-        width: 100%;
-        height: 100%;
+        width: 50px;
+        height: 50px;
     }
-    .direcional > button:hover {
+    .direcional > div:hover {
         background-color: black;
     }
     .up {

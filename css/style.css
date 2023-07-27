@@ -80,12 +80,12 @@ canvas {
         font-size: 2rem;
     }
     canvas {
-        width: 75vw;
+        width: 95vw;
     }
     div.direcional {
         display: grid;
-        width: 105px;
-        grid-template-rows: 35px 35px 35px;
+        width: 150px;
+        grid-template-rows: 50px 50px 50px;
         grid-template-columns: 1fr 1fr 1fr;
         margin-top: 15px;
     }

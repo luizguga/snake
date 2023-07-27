@@ -183,24 +183,27 @@ document.addEventListener('keydown', ({key}) => {
     };
 });
 
-const directions = document.querySelectorAll('.direcional > div');
+const up = document.querySelector('.up');
+const left = document.querySelector('.left');
+const down = document.querySelector('.down');
+const right = document.querySelector('.right');
 
-directions[0].addEventListener('touchstart', ()=> {
+up.addEventListener('touchstart', ()=> {
     if(direction !== 'down' && rodaJogo){
         direction = 'up';
     };
 });
-directions[1].addEventListener('touchstart', ()=> {
+left.addEventListener('touchstart', ()=> {
     if(direction !== 'right' && rodaJogo){
         direction = 'left';
     };
 });
-directions[2].addEventListener('touchstart', ()=> {
+down.addEventListener('touchstart', ()=> {
     if(direction !== 'up' && rodaJogo){
         direction = 'down';
     };
 });
-directions[3].addEventListener('touchstart', ()=> {
+right.addEventListener('touchstart', ()=> {
     if(direction !== 'left' && rodaJogo){
         direction = 'right';
     };

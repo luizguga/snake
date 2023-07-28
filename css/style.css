@@ -32,8 +32,7 @@ canvas {
 .score--value {
     font-weight: 700;
     display: block;
-    font-size: 4.5rem;
-    margin-top: -10px;
+    font-size: 4rem;
 }
 
 .menu-screen {
@@ -89,17 +88,21 @@ canvas {
         grid-template-columns: 1fr 1fr 1fr;
         margin-top: 15px;
     }
-    .direcional > div {
+    .direcional > button {
         background-color: transparent;
         display: block;
         color: white;
-        border: 1px solid white;
         width: 70px;
         height: 50px;
         box-sizing: border-box;
+        border-top: 1px solid white;
+        border-left: 1px solid white;
     }
-    .direcional > div:hover {
+    .direcional > button:focus {
         background-color: black;
+        border: none;
+        border-bottom: 1px solid white;
+        border-right: 1px solid white;
     }
     .up {
         grid-column-start: 2;
@@ -119,13 +122,20 @@ canvas {
         grid-row-start: 3;
         grid-column-start: 2;
     }
-    .menu-score {
-        margin-top: 50vh;
+    .menu-screen {
+        margin-top: 20vh;
     }
     span.game-over {
         font-size: 2em;
     }
 }
+
+@media screen and (max-height: 650px) {
+    .down {
+        grid-row-start: 2;
+    }
+}
+
 .direcional {
     display: none;
 }

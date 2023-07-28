@@ -188,22 +188,22 @@ const left = document.querySelector('.left');
 const down = document.querySelector('.down');
 const right = document.querySelector('.right');
 
-up.addEventListener('touchstart', ()=> {
+up.addEventListener('click', ()=> {
     if(direction !== 'down' && rodaJogo){
         direction = 'up';
     };
 });
-left.addEventListener('touchstart', ()=> {
+left.addEventListener('click', ()=> {
     if(direction !== 'right' && rodaJogo){
         direction = 'left';
     };
 });
-down.addEventListener('touchstart', ()=> {
+down.addEventListener('click', ()=> {
     if(direction !== 'up' && rodaJogo){
         direction = 'down';
     };
 });
-right.addEventListener('touchstart', ()=> {
+right.addEventListener('click', ()=> {
     if(direction !== 'left' && rodaJogo){
         direction = 'right';
     };

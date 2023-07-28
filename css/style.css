@@ -96,6 +96,7 @@ canvas {
         border: 1px solid white;
         width: 70px;
         height: 50px;
+        box-sizing: border-box;
     }
     .direcional > div:hover {
         background-color: black;
@@ -118,17 +119,13 @@ canvas {
         grid-row-start: 3;
         grid-column-start: 2;
     }
+    .menu-score {
+        margin-top: 50vh;
+    }
     span.game-over {
-        display: none;
-    }
-    span.final-score {
-        display: none;
-    }
-    button.btn-play {
-        margin-top: 50%;
+        font-size: 2em;
     }
 }
-
 .direcional {
     display: none;
 }

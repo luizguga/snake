@@ -119,7 +119,7 @@ canvas {
     }
     
     .down {
-        grid-row-start: 3;
+        grid-row-start: 2;
         grid-column-start: 2;
     }
     .menu-screen {
@@ -127,12 +127,6 @@ canvas {
     }
     span.game-over {
         font-size: 2em;
-    }
-}
-
-@media screen and (max-height: 650px) {
-    .down {
-        grid-row-start: 2;
     }
 }
 

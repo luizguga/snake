@@ -16,7 +16,7 @@ const incrementScore = () => {
     score.innerText = +score.innerText + 10;
 };
 
-const audio = new Audio('../assets/audio.mp3');
+//const audio = new Audio('../assets/audio.mp3');
 
 const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min);
@@ -109,7 +109,20 @@ const checkEat = () => {
 
     if(food.x === head.x && food.y === head.y){
         incrementScore();
-        audio.play();
+        
+        //audio.play();
+
+        const audio = document.createElement('audio');
+        audio.src = 'assets/audio.mp3';
+        audio.style.display = 'none';
+        audio.setAttribute('controls', '');
+        audio.setAttribute('autoplay', '');
+        document.body.appendChild(audio);
+
+        setTimeout(()=>{
+            document.body.removeChild(audio);
+        }, 500);
+
         snake.push(head);
 
         let x = randomPosition();
